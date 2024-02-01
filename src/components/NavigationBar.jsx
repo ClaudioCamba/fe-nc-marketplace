@@ -7,14 +7,18 @@ function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">C&D Marketplace</Navbar.Brand>
+        <Navbar.Brand href="/">C&D Marketplace</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="/search">All Products</Nav.Link>
+            <Nav.Link href="/sell">Sell Item</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown title="Category" id="collapsible-nav-dropdown">
+              {/* TODO
+                 - Add in a request to API for category 
+              */}
+              <NavDropdown.Item href="#action/3.1">Ca</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>

@@ -1,17 +1,23 @@
 import "./App.css";
 import NavigationBar from "./NavigationBar";
-import ProductList from './ProductList';
+import ProductList from "./ProductList";
 import { Routes, Route } from "react-router-dom";
-
+import { SellPage } from "./SellPage";
+import {useState} from 'react';
+import categoriesExamples from "../assets/data/getCatergoriesExample.json";
+console.log(categoriesExamples);
 function App() {
+  const [categories, setCategories] = useState(categoriesExamples.categories)
+
   return (
     <>
       <NavigationBar />
       <Routes>
-        <Route path="/test" element={<TestingRouter />}/>
-        <Route path="/test2" element={<h1>HERE!</h1>}/>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/sell" element={<SellPage categories={categories} />} />
+        <Route path="/test2" element={<h1>HERE!</h1>} />
       </Routes>
-      
+
       {/* 
         - TODO add in search bar 
         - TODO Update navigation to correct links
@@ -19,15 +25,8 @@ function App() {
         - TODO Add categories to navigation / slider
         - TODO Add sell item option to navigation
       */}
-      <ProductList />
     </>
   );
 }
 
 export default App;
-
-
-
-function TestingRouter() {
-  return <h1>You are in this Router</h1>
-}
