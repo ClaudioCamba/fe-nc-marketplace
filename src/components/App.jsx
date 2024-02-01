@@ -3,9 +3,9 @@ import NavigationBar from "./NavigationBar";
 import ProductList from "./ProductList";
 import { Routes, Route } from "react-router-dom";
 import { SellPage } from "./SellPage";
-import {useState} from 'react';
+import { useState } from 'react';
 import categoriesExamples from "../assets/data/getCatergoriesExample.json";
-console.log(categoriesExamples);
+
 function App() {
   const [categories, setCategories] = useState(categoriesExamples.categories)
 
