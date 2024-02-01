@@ -4,7 +4,7 @@
       "item_id": 1,
       "item_name": "The Holy Grail",
       "description": "Defo the real deal and not a prop from Indiana Jones",
-      "img_url": "https://test.com/The Holy Grail.jpg",
+      "img_url": "https://assets.editorial.aetnd.com/uploads/2017/07/ask-history-what-is-the-holy-grail.jpg",
       "price": 5000,
       "category_name": "Relics"
     },
@@ -12,7 +12,7 @@
       "item_id": 2,
       "item_name": "The sword of 1000 truths",
       "description": "Not to be entrusted to a noob",
-      "img_url": "https://test.com/1000-truths.jpg",
+      "img_url": "https://modelsaber.com/files/saber/1564998752/image.png",
       "price": 2999,
       "category_name": "Relics"
     }
