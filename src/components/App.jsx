@@ -12,7 +12,13 @@ function App() {
         <Route path="/test2" element={<h1>HERE!</h1>}/>
       </Routes>
       
-      {/* //TODO add in search bar */}
+      {/* 
+        - TODO add in search bar 
+        - TODO Update navigation to correct links
+        - TODO Setup Routers for navigation links
+        - TODO Add categories to navigation / slider
+        - TODO Add sell item option to navigation
+      */}
       <ProductList />
     </>
   );
