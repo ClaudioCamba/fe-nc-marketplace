@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "item_id": 1,
+      "item_name": "The Holy Grail",
+      "description": "Defo the real deal and not a prop from Indiana Jones",
+      "img_url": "https://test.com/The Holy Grail.jpg",
+      "price": 5000,
+      "category_name": "Relics"
+    },
+    {
+      "item_id": 2,
+      "item_name": "The sword of 1000 truths",
+      "description": "Not to be entrusted to a noob",
+      "img_url": "https://test.com/1000-truths.jpg",
+      "price": 2999,
+      "category_name": "Relics"
+    }
+  ],
+  "total_items": 2
+}
