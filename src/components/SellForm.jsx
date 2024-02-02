@@ -1,24 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { postItems } from "../utils/ApiRequests";
 
 function SellForm({ categories }) {
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [price, setPrice] = useState(0);
-  const [category, setCategory] = useState("Choose category");
-  const [itemUploaded, setItemUploaded] = useState(false);
+  const [category, setCategory] = useState(null);
+  const [itemUploaded, setItemUploaded] = useState("Pease Complete Form");
+  const [hasCategoryBeenHandled, setHasCategoryBeenHandled] = useState(false);
+
+  if (!hasCategoryBeenHandled && categories.length > 0){
+    setHasCategoryBeenHandled(true)
+    setCategory(categories[0].category_name)
+  }
 
   const handleSubmit = (event)=>{
     event.preventDefault();
-    console.log(event.target);
-    console.log(itemName)
-    console.log(description)
-    console.log(imgUrl)
-    console.log(typeof price)
-    console.log(category)
+    setItemUploaded("Uploading...")
+    postItems({    
+      "item_name": itemName,
+      "description": description,
+      "img_url": imgUrl,
+      "price": Number(price),
+      "category_name": category
+    }).then((data)=>{
+      setItemUploaded("Product uploaded...");
+    }).catch((err)=>{
+      setItemUploaded(err.response.data.msg)
+    })
   }
+
   return (
     <Form onSubmit={handleSubmit}>
       <fieldset>
@@ -43,7 +57,7 @@ function SellForm({ categories }) {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="categories_name">Category *</Form.Label>
-          <Form.Select id="categories_name"
+          <Form.Select required id="categories_name"
           onChange={(event)=>{setCategory(event.target.value)}}>
             {categories.map((category) => {
               return (
@@ -54,6 +68,7 @@ function SellForm({ categories }) {
             })}
           </Form.Select>
         </Form.Group>
+        <p>{itemUploaded}</p>
         <Button type="submit">Submit</Button>
       </fieldset>
     </Form>

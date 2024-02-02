@@ -3,11 +3,20 @@ import NavigationBar from "./NavigationBar";
 import ProductList from "./ProductList";
 import { Routes, Route } from "react-router-dom";
 import { SellPage } from "./SellPage";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import categoriesExamples from "../assets/data/getCatergoriesExample.json";
+import { getCategories } from "../utils/ApiRequests";
 
 function App() {
-  const [categories, setCategories] = useState(categoriesExamples.categories)
+
+  const [categories, setCategories] = useState([]);
+  useEffect(()=>{
+    getCategories()
+    .then((data)=>{
+      setCategories(data.categories)
+    });
+  },[])
+
 
   return (
     <>

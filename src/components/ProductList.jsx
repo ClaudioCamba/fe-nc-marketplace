@@ -11,7 +11,6 @@ function ProductList() {
   useEffect(()=>{
     getItems()
     .then((data)=> setAllItems(data.items))
-    console.log('test')
   },[])
  
   return (
