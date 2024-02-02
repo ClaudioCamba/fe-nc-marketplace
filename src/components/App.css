@@ -1,7 +1,7 @@
 /* OUR STYLES */
 .product-item {
-  display: grid;
-  grid-template-columns: 30% 70%;
+  display: grid!important;
+  grid-template-columns: 150px auto;
 }
 
 .product-detail {
