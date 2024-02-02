@@ -13,6 +13,7 @@ function NavigationBar({ categories }) {
           <Nav className="me-auto">
             <Nav.Link href="/search">All Products</Nav.Link>
             <Nav.Link href="/sell">Sell Product</Nav.Link>
+            <Nav.Link href="/users">Users</Nav.Link>
             <NavDropdown title="Category" id="collapsible-nav-dropdown">
               {categories.map((category) => {
                 return (

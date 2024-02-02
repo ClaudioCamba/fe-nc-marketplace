@@ -21,7 +21,6 @@ export const getItems = (searchParams) => {
   UrlString += max_price ? `max_price=${max_price}&` : "";
   UrlString += search ? `search=${search}&` : "";
 
-  console.log(UrlString);
   return axios
     .get(UrlString)
     .then((response) => {
@@ -53,5 +52,30 @@ export const postItems = (item) => {
     .then((response) => {
       // handle success
       return response.data;
+    });
+};
+
+export const deleteItem = (id) => {
+  return axios
+    .delete(`https://nc-marketplace-sem-2.onrender.com/api/items/${id}`)
+    .then((response) => {
+      // handle success
+      return response;
+    }).catch((error) => {
+      // handle error
+      console.log(error);
+    });
+};
+
+export const getUsers = () => {
+  return axios
+    .get("https://nc-marketplace-sem-2.onrender.com/api/users")
+    .then((response) => {
+      // handle success
+      return response.data;
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
     });
 };

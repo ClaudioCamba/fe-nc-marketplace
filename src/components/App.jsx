@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { SellPage } from "./SellPage";
 import { useEffect, useState } from "react";
 import { getCategories } from "../utils/ApiRequests";
-import { Search } from "./Search";
+import { UserList } from "./UserList";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -22,6 +22,7 @@ function App() {
         <Route path="/" element={<ProductList />} />
         <Route path="/sell" element={<SellPage categories={categories} />} />
         <Route path="/search" element={<ProductList />} />
+        <Route path="/Users" element={<UserList />} />
       </Routes>
 
       {/* 
@@ -36,3 +37,4 @@ function App() {
 }
 
 export default App;
+

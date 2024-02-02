@@ -25,6 +25,7 @@ function ProductList() {
               title={item.item_name}
               price={item.price}
               imgUrl={item.img_url}
+              id={item.item_id}
             />
           </ListGroup.Item>
         );
