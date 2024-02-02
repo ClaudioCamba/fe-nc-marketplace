@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-function NavigationBar() {
+function NavigationBar({ categories }) {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -12,28 +12,19 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/search">All Products</Nav.Link>
-            <Nav.Link href="/sell">Sell Item</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="/sell">Sell Product</Nav.Link>
             <NavDropdown title="Category" id="collapsible-nav-dropdown">
-              {/* TODO
-                 - Add in a request to API for category 
-              */}
-              <NavDropdown.Item href="#action/3.1">Ca</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              {categories.map((category) => {
+                return (
+                  <NavDropdown.Item
+                    href={`/search?category_name=${category.category_name}`}
+                    key={category.category_name}
+                  >
+                    {category.category_name}
+                  </NavDropdown.Item>
+                );
+              })}
             </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

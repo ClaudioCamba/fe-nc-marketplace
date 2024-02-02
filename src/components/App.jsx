@@ -3,28 +3,25 @@ import NavigationBar from "./NavigationBar";
 import ProductList from "./ProductList";
 import { Routes, Route } from "react-router-dom";
 import { SellPage } from "./SellPage";
-import { useEffect, useState } from 'react';
-import categoriesExamples from "../assets/data/getCatergoriesExample.json";
+import { useEffect, useState } from "react";
 import { getCategories } from "../utils/ApiRequests";
+import { Search } from "./Search";
 
 function App() {
-
   const [categories, setCategories] = useState([]);
-  useEffect(()=>{
-    getCategories()
-    .then((data)=>{
-      setCategories(data.categories)
+  useEffect(() => {
+    getCategories().then((data) => {
+      setCategories(data.categories);
     });
-  },[])
-
+  }, []);
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar categories={categories} />
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/sell" element={<SellPage categories={categories} />} />
-        <Route path="/test2" element={<h1>HERE!</h1>} />
+        <Route path="/search" element={<ProductList />} />
       </Routes>
 
       {/* 
