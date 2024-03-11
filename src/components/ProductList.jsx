@@ -6,9 +6,6 @@ import { useSearchParams } from "react-router-dom";
 
 function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
-  // useEffect(() => {
-  //   console.log(searchParams.get("category"));
-  // }, [searchParams]);
 
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
